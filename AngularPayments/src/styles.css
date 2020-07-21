@@ -18,3 +18,21 @@ input.ng-valid {
 #toast-container {
     opacity: 1;
 }
+
+ .saved-cards, .add-pd-form-header{
+     text-align: center;
+ }
+
+ .pd-list-row:hover{
+    background-color: white;
+    cursor: pointer;
+ }
+
+ .pd-header{
+     text-align: center;
+ }
+
+ .pd-list-header{
+    font-size: .83em;
+    font-weight: bolder;
+ }
