@@ -11,3 +11,4 @@ C:\code\PaymentAPI\PaymentAPI\PaymentAPI\obj\Debug\netcoreapp2.1\PaymentAPI.Asse
 C:\code\PaymentAPI\PaymentAPI\PaymentAPI\obj\Debug\netcoreapp2.1\PaymentAPI.RazorTargetAssemblyInfo.cache
 C:\code\PaymentAPI\PaymentAPI\PaymentAPI\obj\Debug\netcoreapp2.1\PaymentAPI.dll
 C:\code\PaymentAPI\PaymentAPI\PaymentAPI\obj\Debug\netcoreapp2.1\PaymentAPI.pdb
+C:\code\PaymentAPI\PaymentAPI\PaymentAPI\obj\Debug\netcoreapp2.1\PaymentAPI.csprojAssemblyReference.cache

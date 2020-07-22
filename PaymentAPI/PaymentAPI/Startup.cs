@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
 using PaymentAPI.Models;
+using PaymentAPI.Models.Users;
 
 namespace PaymentAPI
 {
@@ -35,7 +37,17 @@ namespace PaymentAPI
                         ((DefaultContractResolver) resolver).NamingStrategy = null;
                 });
 
+
+            services.AddDbContext<AuthenticationContext>(o => o.UseSqlServer(Configuration.GetConnectionString("Dev")));
             services.AddDbContext<PaymentDetailContext>(o => o.UseSqlServer(Configuration.GetConnectionString("Dev")));
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<AuthenticationContext>();
+
+            services.Configure<IdentityOptions>(o =>
+            {
+                o.Password.RequireNonAlphanumeric = false;
+            });
 
             services.AddCors();
         }
@@ -48,6 +60,7 @@ namespace PaymentAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
             app.UseCors(o => 
             o.WithOrigins("http://localhost:4201")
             .AllowAnyMethod()
